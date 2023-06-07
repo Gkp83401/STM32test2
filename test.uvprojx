@@ -394,16 +394,6 @@
               <FileType>2</FileType>
               <FilePath>.\startup_stm32f10x_hd.s</FilePath>
             </File>
-            <File>
-              <FileName>output_function.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\output_function.c</FilePath>
-            </File>
-            <File>
-              <FileName>inner_function.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\inner_function.c</FilePath>
-            </File>
           </Files>
         </Group>
       </Groups>
