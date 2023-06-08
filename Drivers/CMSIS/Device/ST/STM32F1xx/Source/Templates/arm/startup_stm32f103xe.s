@@ -1,30 +1,28 @@
-;******************** (C) COPYRIGHT 2011 STMicroelectronics ********************
-;* File Name          : startup_stm32f10x_hd.s
+;******************** (C) COPYRIGHT 2017 STMicroelectronics ********************
+;* File Name          : startup_stm32f103xe.s
 ;* Author             : MCD Application Team
-;* Version            : V3.5.0
-;* Date               : 11-March-2011
-;* Description        : STM32F10x High Density Devices vector table for MDK-ARM 
-;*                      toolchain. 
+;* Description        : STM32F103xE Devices vector table for MDK-ARM toolchain. 
 ;*                      This module performs:
 ;*                      - Set the initial SP
 ;*                      - Set the initial PC == Reset_Handler
 ;*                      - Set the vector table entries with the exceptions ISR address
-;*                      - Configure the clock system and also configure the external 
-;*                        SRAM mounted on STM3210E-EVAL board to be used as data 
-;*                        memory (optional, to be enabled by user)
+;*                      - Configure the clock system
 ;*                      - Branches to __main in the C library (which eventually
 ;*                        calls main()).
-;*                      After Reset the CortexM3 processor is in Thread mode,
+;*                      After Reset the Cortex-M3 processor is in Thread mode,
 ;*                      priority is Privileged, and the Stack is set to Main.
-;* <<< Use Configuration Wizard in Context Menu >>>   
-;*******************************************************************************
-; THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
-; WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE TIME.
-; AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY DIRECT,
-; INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING FROM THE
-; CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE CODING
-; INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
-;*******************************************************************************
+;******************************************************************************
+;* @attention
+;*
+;* Copyright (c) 2017 STMicroelectronics.
+;* All rights reserved.
+;*
+;* This software component is licensed by ST under BSD 3-Clause license,
+;* the "License"; You may not use this file except in compliance with the
+;* License. You may obtain a copy of the License at:
+;*                        opensource.org/licenses/BSD-3-Clause
+;*
+;******************************************************************************
 
 ; Amount of memory (in bytes) allocated for Stack
 ; Tailor this value to your application needs
@@ -42,7 +40,7 @@ __initial_sp
 ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
 ; </h>
 
-Heap_Size       EQU     0x00000000
+Heap_Size       EQU     0x00000200
 
                 AREA    HEAP, NOINIT, READWRITE, ALIGN=3
 __heap_base
@@ -118,7 +116,7 @@ __Vectors       DCD     __initial_sp               ; Top of Stack
                 DCD     USART2_IRQHandler          ; USART2
                 DCD     USART3_IRQHandler          ; USART3
                 DCD     EXTI15_10_IRQHandler       ; EXTI Line 15..10
-                DCD     RTCAlarm_IRQHandler        ; RTC Alarm through EXTI Line
+                DCD     RTC_Alarm_IRQHandler        ; RTC Alarm through EXTI Line
                 DCD     USBWakeUp_IRQHandler       ; USB Wakeup from suspend
                 DCD     TIM8_BRK_IRQHandler        ; TIM8 Break
                 DCD     TIM8_UP_IRQHandler         ; TIM8 Update
@@ -147,9 +145,9 @@ __Vectors_Size  EQU  __Vectors_End - __Vectors
 Reset_Handler   PROC
                 EXPORT  Reset_Handler             [WEAK]
                 IMPORT  __main
-                ; IMPORT  SystemInit
-                ; LDR     R0, =SystemInit
-                ; BLX     R0               
+                IMPORT  SystemInit
+                LDR     R0, =SystemInit
+                BLX     R0               
                 LDR     R0, =__main
                 BX      R0
                 ENDP
@@ -241,7 +239,7 @@ Default_Handler PROC
                 EXPORT  USART2_IRQHandler          [WEAK]
                 EXPORT  USART3_IRQHandler          [WEAK]
                 EXPORT  EXTI15_10_IRQHandler       [WEAK]
-                EXPORT  RTCAlarm_IRQHandler        [WEAK]
+                EXPORT  RTC_Alarm_IRQHandler        [WEAK]
                 EXPORT  USBWakeUp_IRQHandler       [WEAK]
                 EXPORT  TIM8_BRK_IRQHandler        [WEAK]
                 EXPORT  TIM8_UP_IRQHandler         [WEAK]
@@ -302,7 +300,7 @@ USART1_IRQHandler
 USART2_IRQHandler
 USART3_IRQHandler
 EXTI15_10_IRQHandler
-RTCAlarm_IRQHandler
+RTC_Alarm_IRQHandler
 USBWakeUp_IRQHandler
 TIM8_BRK_IRQHandler
 TIM8_UP_IRQHandler
@@ -355,4 +353,4 @@ __user_initial_stackheap
 
                  END
 
-;******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE*****
+;************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE*****

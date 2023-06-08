@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath></IncludePath>
+              <IncludePath>.</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -393,6 +393,41 @@
               <FileName>startup_stm32f10x_hd.s</FileName>
               <FileType>2</FileType>
               <FilePath>.\startup_stm32f10x_hd.s</FilePath>
+            </File>
+            <File>
+              <FileName>screen.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\screen.h</FilePath>
+            </File>
+            <File>
+              <FileName>screen.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\screen.c</FilePath>
+            </File>
+            <File>
+              <FileName>ddd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ddd.c</FilePath>
+            </File>
+            <File>
+              <FileName>base.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\base.h</FilePath>
+            </File>
+            <File>
+              <FileName>string.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\string.c</FilePath>
+            </File>
+            <File>
+              <FileName>keyboard.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\keyboard.c</FilePath>
+            </File>
+            <File>
+              <FileName>init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\init.c</FilePath>
             </File>
           </Files>
         </Group>

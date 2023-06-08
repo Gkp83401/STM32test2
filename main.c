@@ -1,36 +1,17 @@
-void SystemInit() {}
-    
-#define GPIOB_CRL   *((volatile unsigned long*)0x40010C00)
-#define GPIOB_CRH   *((volatile unsigned long*)0x40010C04)
-#define GPIOB_IDR   *((volatile unsigned long*)0x40010C08)
-#define GPIOB_ODR   *((volatile unsigned long*)0x40010C0C)
-#define GPIOB_BRR   *((volatile unsigned long*)0x40010C14)
-#define GPIOB_BSRR  *((volatile unsigned long*)0x40010C10)
-#define GPIOC_CRL   *((volatile unsigned long*)0x40011000)
-#define GPIOC_CRH   *((volatile unsigned long*)0x40011004)
-#define GPIOC_IDR   *((volatile unsigned long*)0x40011008)
-#define GPIOC_ODR   *((volatile unsigned long*)0x4001100C)
-#define GPIOC_BRR   *((volatile unsigned long*)0x40011014)
-#define GPIOC_BSRR  *((volatile unsigned long*)0x40011010)
-#define RCC_APB2ENR *((volatile unsigned long*)0x40021018)
+#include "base.h"
+#include "screen.h"
 
-void ddd(unsigned int u)
-{
-    unsigned long int i;
-    for (i = 0; i < 10000 * (unsigned long int)u; i++);
-}
-	
-void screen_w(unsigned char rs, unsigned char d_0_to_7)
-{
-    // make e = 0, rw = 0
-    GPIOB_ODR = (GPIOB_ODR & 0x0000) | (rs << 11) |
-        d_0_to_7 | ((unsigned int)(d_0_to_7 & 0x18) << 9);
-    GPIOB_BSRR = 0x0400;
-    ddd(1);
-    GPIOB_BRR = 0x0400;
-    ddd(1);
-}
-// unsigned char codetable[]={0x07,0x08,0x00,0x08,0x1c,0x08,0x07,0x00};
+// 有几个字符要记得去base.h去改
+unsigned char myChar[8][8]={
+    {0x07,0x08,0x00,0x08,0x1c,0x08,0x07,0x00},
+    {0x1F,0x08,0x00,0x08,0x1c,0x08,0x07,0x00},
+    {0x1F,0x1F,0x00,0x08,0x1c,0x08,0x07,0x00},
+    {0x1F,0x08,0x1F,0x08,0x1c,0x08,0x07,0x00},
+    {0x1F,0x08,0x00,0x1F,0x1c,0x08,0x07,0x00},
+    {0x1F,0x08,0x00,0x08,0x1F,0x08,0x07,0x00},
+    {0x1F,0x08,0x00,0x08,0x1c,0x1F,0x07,0x00},
+    {0x1F,0x08,0x00,0x08,0x1c,0x08,0x1F,0x00}
+};
 const char transform1[41] = 
 {
     '1', '2', 'q', 'w', 'a', 's', 'z', 'x',
@@ -45,103 +26,79 @@ const char transform2[41] =
     '!', '@', 'Q', 'W', 'A', 'S', 'Z', 'X',
     '#', '$', 'E', 'R', 'D', 'F', 'C', 'V',
     '%', '^', 'T', 'Y', 'G', 'H', 'B', 'N',
-    '&', '*', 'U', 'I', 'J', 'K', 'M', 0,
+    '&', '*', 'U', 'I', 'J', 'K', 'M', ' ',
     '(', ')', 'O', 'P', 'L', 0,   0,   0,
     0
 };
-unsigned char strCmp(char *mode, char *toCmp)
-{
-    unsigned char out = 0;  // compare not succed
-    unsigned char i = 0;
-    while (mode[i] == toCmp[i]) {
-        if (mode[i] == 0 && mode[i] ==toCmp[i]) {
-            out = 1;
-            break;
-        }
-        i++;
-    }
-    return out;
-}
-void my_printf(char *string)
-{
-    unsigned char i = 0;
-    while (string[i]) {
-        if (string[i] == '\n') {
-            screen_w(0, 0xC0);
-            i++;
-            continue;
-        }
-        screen_w(1, string[i]);
-        i++;
-    }
-}
-void isRight()
-{
-    my_printf("\nright");
-}
+
+unsigned char isWhere;
+char strOn[30];
+unsigned char strOnCaps[30];
+
+unsigned char pressAgain;
+
 int main()
 {
-    unsigned char used;
-    unsigned char used2;
-    unsigned char isWhere;
-    char strOn[30];
+    getKey aGetKey;
     RCC_APB2ENR |= 1 << 3;
     RCC_APB2ENR |= 1 << 4;
-    GPIOC_CRL = 0x44444444;
-    GPIOC_CRH = 0x44444444;
+    GPIOC_CRL = 0x84444444;
+    GPIOC_ODR = 0x0000;
     GPIOB_CRL = 0x33333333;
     GPIOB_CRH = 0x33333333;
-    
-    aaa:
-    isWhere = 0;
-    
+    // 固定设置
     screen_w(0, 0x38);
-    screen_w(0, 0x0F);
+    // 固定设置
+    // 置1时 位1 指针加1, 位0 屏幕移动
     screen_w(0, 0x06);
-    screen_w(0, 0x01);
     
-    if (strCmp("abc", "abcd")) {
-        my_printf("yes");
-    } else {
-        my_printf("No");
-    }
-    /*
-    // 自定义字符
-    screen(0, 0, 0, 0x40);
-    for (i = 0; i < 8; i++) {
-        screen(1, 0, 0, codetable[i]);
-    }
-    screen(0, 0, 0, 0x81);
-    screen(1, 0, 0, 0x00);
-    */
     
-	while(1)
+    init();
+    
+    
+    
+    
+    // 每次循环代表开始新的按下
+    while(1)
     {
-        used = (unsigned char)(GPIOC_IDR & 0xFF);
-        if (used & 0x80) {
-            used2 = used & 0x3F;
-            
-            if (used2 == 0x1F)
-                goto aaa;
-            else if (used2 == 0x25) {
-                screen_w(0, 0xC0);
-                strOn[isWhere] = 0;
-                if (strCmp("right", strOn))
-                    isRight();
+        toGetKey(&aGetKey);
+        
+        
+        if (aGetKey.gs) {
+            // 清屏
+            if (aGetKey.c == 0x1F && !(aGetKey.caps)) {
+                init();
+            }
+            else if (aGetKey.c == 0x25) {
+                if (aGetKey.caps) {
+                    if (isWhere != 0) {
+                        isWhere--;
+                        screen_w(0, 0x10);
+                        screen_w(1, ' ');
+                        screen_w(0, 0x10);
+                    }
+                } else {
+                    screen_w(0, 0xC0);
+                    if (strCmp("right"))
+                        isRight();
+                    isWhere = 0;
+                }
                 
             } else {
-                if (used & 0x40)
-                    strOn[isWhere] = transform2[used2];
-                    // screen_w(1, transform2[used2]);
-                else
-                    strOn[isWhere] = transform1[used2];
-                    // screen_w(1, transform1[used2]);
-                screen_w(1, strOn[isWhere]);
+                if (aGetKey.caps) {
+                    strOnCaps[isWhere] = 1;
+                    strOn[isWhere] = aGetKey.c;
+                    screen_w(1, transform2[aGetKey.c]);
+                }
+                else {
+                    strOnCaps[isWhere] = 0;
+                    strOn[isWhere] = aGetKey.c;
+                    screen_w(1, transform1[aGetKey.c]);
+                }
                 isWhere++;
             }
             
         }
-        
-        ddd(25);
     }
+    
 }
