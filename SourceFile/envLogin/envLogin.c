@@ -1,9 +1,9 @@
-#include "base.h"
+#include "envLogin.h"
 #include "screen.h"
+#include "keyboard.h"
 
-void envLogin()
+unsigned char envLogin()
 {
-    getKey aGetKey;
     char user[30];
     char passwd[30];
     unsigned char i;
@@ -11,7 +11,6 @@ void envLogin()
     // 置1时 位2 开屏幕, 位1 开光标, 位0 开闪烁
     screen_w(0, 0x0F);
     screen_w(0, 0x01);
-    pressAgain = 0;
     initMyChar();
     
     while(1) {

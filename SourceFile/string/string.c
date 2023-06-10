@@ -1,32 +1,23 @@
-#include "base.h"
+#include "string.h"
 
-unsigned char strCmp(char *mode)
+unsigned char strCmpOneIndex(unsigned char index, char *strInd, char *strZeroOrInd)
 {
-    unsigned char i;
-    char ch;
-    for (i = 0; i < isWhere; i++) {
-        if (strOnCaps[i])
-            ch = transform2[strOn[i]];
-        else
-            ch = transform1[strOn[i]];
-        if (mode[i] != ch)
-            return 0;
+    unsigned int i;
+    for (i = 0; i < index; i++) {
+        if (strZeroOrInd[i] != strInd[i])
+            return IS_NOT_SAME;
     }
-    if (mode[i] == 0)
-        return 1;
-    return 0;
+    return IS_SAME;
 }
 
 unsigned char strCmp2(char *ch1, char *ch2)
 {
-    unsigned char i = 0;
-    unsigned char result = 0; // is unsucced
+    unsigned int i = 0;
     while(ch1[i] == ch2[i]) {
         if (ch1[i] == 0) {
-            result = 1;
-            break;
+            return IS_SAME;
         }
         i++;
     }
-    return result;
+    return IS_NOT_SAME;
 }

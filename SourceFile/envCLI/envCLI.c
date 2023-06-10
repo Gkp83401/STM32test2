@@ -1,8 +1,6 @@
 #include "envCLI.h"
 #include "screen.h"
 
-// 这里记得要改
-#include "base.h"
 
 unsigned char envCLI()
 {

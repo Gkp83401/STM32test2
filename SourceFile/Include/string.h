@@ -1,0 +1,28 @@
+#ifndef STRING_H
+#define STRING_H
+
+// 比较的两个字符串的函数返回结果
+#define IS_SAME         1
+#define IS_NOT_SAME     0
+
+// 字符串分为两种
+// 一种是用结尾为0来标记结束
+// 另一种是用一个值来表示字符长度
+
+// 比较两个字符串
+// 参与比较的一个0结尾、一个长度标识 或 两个长度标识
+unsigned char strCmpOneIndex(unsigned char index, char *strInd, char *strZeroOrInd);
+// 参与比较的两个0结尾
+unsigned char strCmpNoIndex(char *str1, char *str2);
+
+void strCopy(char *sourceStr, char *targetStr);
+
+void strCopyInd(char *indSourceStr, char *target);
+
+void strCat(char *headStr, char addStr);
+
+unsigned int strCatInd(char *headStr, unsigned int index, char *addStr);
+
+
+
+#endif

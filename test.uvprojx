@@ -419,6 +419,31 @@
               <FileType>5</FileType>
               <FilePath>.\SourceFile\Include\delay.h</FilePath>
             </File>
+            <File>
+              <FileName>string.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SourceFile\Include\string.h</FilePath>
+            </File>
+            <File>
+              <FileName>envLogin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SourceFile\Include\envLogin.h</FilePath>
+            </File>
+            <File>
+              <FileName>superstring.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SourceFile\Include\superstring.h</FilePath>
+            </File>
+            <File>
+              <FileName>keyValue.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SourceFile\Include\keyValue.h</FilePath>
+            </File>
+            <File>
+              <FileName>speSignal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SourceFile\Include\speSignal.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -493,6 +518,16 @@
               <FileName>string.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\SourceFile\string\string.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>superstring</GroupName>
+          <Files>
+            <File>
+              <FileName>superstring.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceFile\superstring\superstring.c</FilePath>
             </File>
           </Files>
         </Group>
