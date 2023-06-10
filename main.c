@@ -1,104 +1,57 @@
 #include "base.h"
 #include "screen.h"
 
-// 有几个字符要记得去base.h去改
-unsigned char myChar[8][8]={
+// 这个字符数组用来存放自定义的字符
+// 其中每8个char类型用来构建一个字符
+// 要去base.h改长度 
+unsigned char myChar[][8]={
     {0x07,0x08,0x00,0x08,0x1c,0x08,0x07,0x00},
     {0x1F,0x08,0x00,0x08,0x1c,0x08,0x07,0x00},
     {0x1F,0x1F,0x00,0x08,0x1c,0x08,0x07,0x00},
     {0x1F,0x08,0x1F,0x08,0x1c,0x08,0x07,0x00},
     {0x1F,0x08,0x00,0x1F,0x1c,0x08,0x07,0x00},
     {0x1F,0x08,0x00,0x08,0x1F,0x08,0x07,0x00},
-    {0x1F,0x08,0x00,0x08,0x1c,0x1F,0x07,0x00},
-    {0x1F,0x08,0x00,0x08,0x1c,0x08,0x1F,0x00}
+    {0x1F,0x08,0x00,0x08,0x1c,0x1F,0x07,0x00}
+    // {0x1F,0x08,0x00,0x08,0x1c,0x08,0x1F,0x00}
 };
+// 这个用来表示存放了多少字符
+const unsigned char numOfCh = sizeof(myChar) / (8 * sizeof(unsigned char));
+
+// 下面2个数组用来将键盘上获取到的数据转成对应的字符
+// @这里可以把两个字符合成一个
+// @这里的回车之类的值可以从0变成\n之类的
+// 小写字符
 const char transform1[41] = 
 {
     '1', '2', 'q', 'w', 'a', 's', 'z', 'x',
     '3', '4', 'e', 'r', 'd', 'f', 'c', 'v',
     '5', '6', 't', 'y', 'g', 'h', 'b', 'n',
-    '7', '8', 'u', 'i', 'j', 'k', 'm', 0,
-    '9', '0', 'o', 'p', 'l', 0,   0,   0,
-    0
+    '7', '8', 'u', 'i', 'j', 'k', 'm', 0x80,
+    '9', '0', 'o', 'p', 'l', 0x81, 0x82, 0x83,
+    0x84
 };
+// 大写字符
 const char transform2[41] = 
 {
     '!', '@', 'Q', 'W', 'A', 'S', 'Z', 'X',
     '#', '$', 'E', 'R', 'D', 'F', 'C', 'V',
     '%', '^', 'T', 'Y', 'G', 'H', 'B', 'N',
     '&', '*', 'U', 'I', 'J', 'K', 'M', ' ',
-    '(', ')', 'O', 'P', 'L', 0,   0,   0,
-    0
+    '(', ')', 'O', 'P', 'L', 0x85, 0x86, 0x87,
+    0x88
 };
 
-unsigned char isWhere;
-char strOn[30];
-unsigned char strOnCaps[30];
 
+// 用来判断按键是否被重复按下
 unsigned char pressAgain;
 
 int main()
-{
-    getKey aGetKey;
-    RCC_APB2ENR |= 1 << 3;
-    RCC_APB2ENR |= 1 << 4;
-    GPIOC_CRL = 0x84444444;
-    GPIOC_ODR = 0x0000;
-    GPIOB_CRL = 0x33333333;
-    GPIOB_CRH = 0x33333333;
-    // 固定设置
-    screen_w(0, 0x38);
-    // 固定设置
-    // 置1时 位1 指针加1, 位0 屏幕移动
-    screen_w(0, 0x06);
-    
+ {
     
     init();
     
+    envLogin();
     
-    
-    
-    // 每次循环代表开始新的按下
-    while(1)
-    {
-        toGetKey(&aGetKey);
-        
-        
-        if (aGetKey.gs) {
-            // 清屏
-            if (aGetKey.c == 0x1F && !(aGetKey.caps)) {
-                init();
-            }
-            else if (aGetKey.c == 0x25) {
-                if (aGetKey.caps) {
-                    if (isWhere != 0) {
-                        isWhere--;
-                        screen_w(0, 0x10);
-                        screen_w(1, ' ');
-                        screen_w(0, 0x10);
-                    }
-                } else {
-                    screen_w(0, 0xC0);
-                    if (strCmp("right"))
-                        isRight();
-                    isWhere = 0;
-                }
-                
-            } else {
-                if (aGetKey.caps) {
-                    strOnCaps[isWhere] = 1;
-                    strOn[isWhere] = aGetKey.c;
-                    screen_w(1, transform2[aGetKey.c]);
-                }
-                else {
-                    strOnCaps[isWhere] = 0;
-                    strOn[isWhere] = aGetKey.c;
-                    screen_w(1, transform1[aGetKey.c]);
-                }
-                isWhere++;
-            }
-            
-        }
-    }
+    envCLI();
     
 }

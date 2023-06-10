@@ -1,6 +1,9 @@
 #ifndef BASE_H
 #define BASE_H
 
+// 用来开启GPIOB和GPIOC这两个端口
+#define RCC_APB2ENR *((volatile unsigned long*)0x40021018)
+// 对GPIOB和对GPIOC两个端口进行功能设置
 #define GPIOB_CRL   *((volatile unsigned long*)0x40010C00)
 #define GPIOB_CRH   *((volatile unsigned long*)0x40010C04)
 #define GPIOB_IDR   *((volatile unsigned long*)0x40010C08)
@@ -13,9 +16,12 @@
 #define GPIOC_ODR   *((volatile unsigned long*)0x4001100C)
 #define GPIOC_BRR   *((volatile unsigned long*)0x40011014)
 #define GPIOC_BSRR  *((volatile unsigned long*)0x40011010)
-#define RCC_APB2ENR *((volatile unsigned long*)0x40021018)
     
-extern unsigned char myChar[8][8];
+// to test the code
+void test(void);
+    
+extern const unsigned char numOfCh;
+extern unsigned char myChar[7][8];
 extern const char transform1[41];
 extern const char transform2[41];
 extern unsigned char isWhere;
@@ -38,5 +44,11 @@ typedef struct
 } getKey;
 
 void toGetKey(getKey *aGetKeyPoint);
+
+unsigned char strCmp2(char *ch1, char *ch2);
+
+void envCLI(void);
+
+void envLogin(void);
 
 #endif

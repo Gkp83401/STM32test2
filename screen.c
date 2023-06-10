@@ -31,9 +31,22 @@ unsigned char screen_r(unsigned char rs)
     return result;
 }
 
+unsigned char screen_r_address()
+{
+    unsigned int i;
+    for (i = 0; i < 4000; i++);
+    return screen_r(0) & 0x7F;
+}
+
 void isRight()
 {
-    my_printf("\nright");
+    screen_w(0, 0x80 + 0x40);
+    my_printf("right");
+}
+void isError()
+{
+    screen_w(0, 0x80 + 0x40);
+    my_printf("error");
 }
 void my_printf(char *string)
 {
@@ -53,8 +66,8 @@ void initMyChar()
 {
     unsigned char i, j;
     unsigned char position;
-    position = screen_r(0) & 0x7F;
-    for (j = 0; j < sizeof(myChar) / (8 * sizeof(unsigned char)); j++) {
+    position = screen_r_address();
+    for (j = 0; j < numOfCh; j++) {
         screen_w(0, 0x40 + j * 8);
         for (i = 0; i < 8; i++) {
             screen_w(1, myChar[j][i]);

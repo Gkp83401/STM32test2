@@ -429,6 +429,26 @@
               <FileType>1</FileType>
               <FilePath>.\init.c</FilePath>
             </File>
+            <File>
+              <FileName>README.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\README.c</FilePath>
+            </File>
+            <File>
+              <FileName>test.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\test.c</FilePath>
+            </File>
+            <File>
+              <FileName>envCLI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\envCLI.c</FilePath>
+            </File>
+            <File>
+              <FileName>envLogin.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\envLogin.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
