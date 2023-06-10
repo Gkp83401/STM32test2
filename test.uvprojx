@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.</IncludePath>
+              <IncludePath>.\SourceFile\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -382,72 +382,117 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>Source Group 1</GroupName>
+          <GroupName>envCLI</GroupName>
           <Files>
             <File>
-              <FileName>main.c</FileName>
+              <FileName>envCLI.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\main.c</FilePath>
+              <FilePath>.\SourceFile\envCLI\envCLI.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Include</GroupName>
+          <Files>
             <File>
-              <FileName>startup_stm32f10x_hd.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>.\startup_stm32f10x_hd.s</FilePath>
+              <FileName>base.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SourceFile\Include\base.h</FilePath>
             </File>
             <File>
               <FileName>screen.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\screen.h</FilePath>
+              <FilePath>.\SourceFile\Include\screen.h</FilePath>
             </File>
             <File>
-              <FileName>screen.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\screen.c</FilePath>
-            </File>
-            <File>
-              <FileName>ddd.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\ddd.c</FilePath>
-            </File>
-            <File>
-              <FileName>base.h</FileName>
+              <FileName>envCLI.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\base.h</FilePath>
+              <FilePath>.\SourceFile\Include\envCLI.h</FilePath>
             </File>
             <File>
-              <FileName>string.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\string.c</FilePath>
+              <FileName>keyboard.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SourceFile\Include\keyboard.h</FilePath>
             </File>
             <File>
-              <FileName>keyboard.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\keyboard.c</FilePath>
+              <FileName>delay.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SourceFile\Include\delay.h</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>host</GroupName>
+          <Files>
             <File>
-              <FileName>init.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\init.c</FilePath>
+              <FileName>startup_stm32f10x_hd.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\SourceFile\startup_stm32f10x_hd.s</FilePath>
             </File>
             <File>
               <FileName>README.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\README.c</FilePath>
+              <FilePath>.\SourceFile\README.c</FilePath>
             </File>
             <File>
-              <FileName>test.c</FileName>
+              <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\test.c</FilePath>
+              <FilePath>.\SourceFile\main.c</FilePath>
             </File>
             <File>
-              <FileName>envCLI.c</FileName>
+              <FileName>init.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\envCLI.c</FilePath>
+              <FilePath>.\SourceFile\init.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>delay</GroupName>
+          <Files>
+            <File>
+              <FileName>ddd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceFile\delay\ddd.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>envLogin</GroupName>
+          <Files>
             <File>
               <FileName>envLogin.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\envLogin.c</FilePath>
+              <FilePath>.\SourceFile\envLogin\envLogin.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>keyboard</GroupName>
+          <Files>
+            <File>
+              <FileName>keyboard.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceFile\keyboard\keyboard.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>screen</GroupName>
+          <Files>
+            <File>
+              <FileName>screen.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceFile\screen\screen.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>string</GroupName>
+          <Files>
+            <File>
+              <FileName>string.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceFile\string\string.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -1,13 +1,15 @@
-#include "base.h"
+#include "envCLI.h"
 #include "screen.h"
 
-// 表示每次回车前输入了什么字符串
-unsigned char isWhere;
-char strOn[30];
-unsigned char strOnCaps[30];
+// 这里记得要改
+#include "base.h"
 
-void envCLI()
+unsigned char envCLI()
 {
+    // 表示每次回车前输入了什么字符串
+    unsigned char isWhere;
+    char strOn[30];
+    
     getKey aGetKey;
     screen_w(0, 0x01);
     my_printf("$ ");
@@ -19,11 +21,23 @@ void envCLI()
         
         
         if (aGetKey.gs) {
+            
+            // 存程输入
+            if (aGetKey.caps) {
+                strOn[isWhere] = transform2[aGetKey.c];
+            }
+            else {
+                strOn[isWhere] = transform1[aGetKey.c];
+            }
+            isWhere++;
+            strOn[isWhere] = 0;
+            
+            // 处理字符
             // 清屏
             if (aGetKey.c == 0x1F && !(aGetKey.caps)) {
-                // init();
+                return TO_RESET;
             }
-            else if (aGetKey.c == 0x25) {
+            if (aGetKey.c == 0x25) {
                 if (aGetKey.caps) { // 退格
                     if (isWhere != 0) {
                         isWhere--;
@@ -44,18 +58,6 @@ void envCLI()
                     isWhere = 0;
                 }
                 
-            } else {
-                if (aGetKey.caps) {
-                    strOnCaps[isWhere] = 1;
-                    strOn[isWhere] = aGetKey.c;
-                    screen_w(1, transform2[aGetKey.c]);
-                }
-                else {
-                    strOnCaps[isWhere] = 0;
-                    strOn[isWhere] = aGetKey.c;
-                    screen_w(1, transform1[aGetKey.c]);
-                }
-                isWhere++;
             }
             
         }
