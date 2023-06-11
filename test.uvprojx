@@ -449,6 +449,16 @@
               <FileType>5</FileType>
               <FilePath>.\SourceFile\Include\readAndWrite.h</FilePath>
             </File>
+            <File>
+              <FileName>envEditor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SourceFile\Include\envEditor.h</FilePath>
+            </File>
+            <File>
+              <FileName>envLoginOutImformation.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SourceFile\Include\envLoginOutImformation.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -543,6 +553,16 @@
               <FileName>readAndWrite.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\SourceFile\readAndWrite\readAndWrite.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>envEditor</GroupName>
+          <Files>
+            <File>
+              <FileName>envEditor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceFile\envEditor\envEditor.c</FilePath>
             </File>
           </Files>
         </Group>

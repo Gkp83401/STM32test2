@@ -4,7 +4,7 @@ int main()
  {
     while (1) {
         init();
-        
+        /*
         if (envLogin() == TO_RESET) {
             continue;
         }
@@ -12,5 +12,7 @@ int main()
         if (envCLI() == TO_RESET) {
             continue;
         }
+        */
+        envEditor();
     }
 }
