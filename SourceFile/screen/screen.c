@@ -1,5 +1,18 @@
 #include "screen.h"
 
+// 这个字符数组用来存放自定义的字符
+// 其中每8个char类型用来构建一个字符
+// 要去screen.h改长度 
+unsigned char myChar[8][8]={
+    {0x07,0x08,0x00,0x08,0x1c,0x08,0x07,0x00},
+    {0x1F,0x08,0x00,0x08,0x1c,0x08,0x07,0x00},
+    {0x1F,0x1F,0x00,0x08,0x1c,0x08,0x07,0x00},
+    {0x1F,0x08,0x1F,0x08,0x1c,0x08,0x07,0x00},
+    {0x1F,0x08,0x00,0x1F,0x1c,0x08,0x07,0x00},
+    {0x1F,0x08,0x00,0x08,0x1F,0x08,0x07,0x00},
+    {0x1F,0x08,0x00,0x08,0x1c,0x1F,0x07,0x00}
+    // {0x1F,0x08,0x00,0x08,0x1c,0x08,0x1F,0x00}
+};
 
 void screen_w(unsigned char rs, unsigned char d_0_to_7)
 {
@@ -12,7 +25,7 @@ void screen_w(unsigned char rs, unsigned char d_0_to_7)
 
 unsigned char screen_r(unsigned char rs)
 {
-    unsigned int i;
+    int i;
     unsigned char result;
     GPIOB_CRL = 0x44433444;
     GPIOB_CRH = 0x33443333;
@@ -38,13 +51,13 @@ unsigned char screen_r_busy()
 
 unsigned char screen_r_address()
 {
-    unsigned int i;
+    int i;
     for (i = 0; i < 4000; i++);
     return screen_r(0) & 0x7F;
 }
 void my_printf(char *string)
 {
-    unsigned char i = 0;
+    int i = 0;
     while (string[i]) {
         if (string[i] == '\n') {
             screen_w(0, 0xC0);
@@ -58,8 +71,8 @@ void my_printf(char *string)
 }
 void initMyChar()
 {
-    unsigned char i, j;
-    unsigned char position;
+    int i, j;
+    int position;
     position = screen_r_address();
     for (j = 0; j < 8; j++) {
         screen_w(0, 0x40 + j * 8);
@@ -68,4 +81,24 @@ void initMyChar()
         }
     }
     screen_w(0, 0x80 | position);
+}
+
+void clearAString(unsigned int length, unsigned int position)
+{
+    unsigned int i;
+    screen_w(0, 0x80 | position);
+    for (i = 0; i < length; i++) {
+        screen_w(1, ' ');
+    }
+    screen_w(0, 0x80 | position);
+    return;
+}
+
+void screenWriteAndReturn(char *str)
+{
+    unsigned int position;
+    position = screen_r_address();
+    my_printf(str);
+    screen_w(0, 0x80 + position);
+    return;
 }

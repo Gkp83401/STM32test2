@@ -5,6 +5,7 @@
 #include "keyboard.h"
 #include "envLogin.h"
 #include "envCLI.h"
+#include "speSignal.h"
 
 
 // 用来开启GPIOB和GPIOC这两个端口

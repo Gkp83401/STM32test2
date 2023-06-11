@@ -444,6 +444,11 @@
               <FileType>5</FileType>
               <FilePath>.\SourceFile\Include\speSignal.h</FilePath>
             </File>
+            <File>
+              <FileName>readAndWrite.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SourceFile\Include\readAndWrite.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -531,6 +536,16 @@
             </File>
           </Files>
         </Group>
+        <Group>
+          <GroupName>readAndWrite</GroupName>
+          <Files>
+            <File>
+              <FileName>readAndWrite.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceFile\readAndWrite\readAndWrite.c</FilePath>
+            </File>
+          </Files>
+        </Group>
       </Groups>
     </Target>
   </Targets>
@@ -540,5 +555,14 @@
     <components/>
     <files/>
   </RTE>
+
+  <LayerInfo>
+    <Layers>
+      <Layer>
+        <LayName>test</LayName>
+        <LayPrjMark>1</LayPrjMark>
+      </Layer>
+    </Layers>
+  </LayerInfo>
 
 </Project>

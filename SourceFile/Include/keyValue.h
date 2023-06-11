@@ -1,6 +1,7 @@
 #ifndef RESET_H
 #define RESET_H
 
+#define keyNULL     0
 #define keyESC      0x1B
 #define keyLF       '\n'
 #define keyUP       0x80
