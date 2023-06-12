@@ -1,7 +1,13 @@
 Dependencies for Project 'test', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARM_Compiler_5.06u7
+<<<<<<< HEAD
 F (.\SourceFile\envCLI\envCLI.c)(0x6485F407)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SourceFile\Include-ID:\MDK538a\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_LD-o .\objects\envcli.o --omf_browse .\objects\envcli.crf --depend .\objects\envcli.d)
 I (.\SourceFile\Include\envCLI.h)(0x6486687E)
+=======
+F (.\SourceFile\envCLI\envCLI.c)(0x64852F13)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SourceFile\Include-ID:\MDK538a\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_LD-o .\objects\envcli.o --omf_browse .\objects\envcli.crf --depend .\objects\envcli.d)
+I (.\SourceFile\Include\envCLI.h)(0x6485A133)
+I (.\SourceFile\Include\envLoginOutImformation.h)(0x6485A34B)
+>>>>>>> 8b9098adfb1bd39d598b01f42b70b19cf9a2a00d
 I (.\SourceFile\Include\screen.h)(0x64856C0F)
 I (.\SourceFile\Include\keyboard.h)(0x648533BB)
 I (.\SourceFile\Include\keyValue.h)(0x64851335)
@@ -9,6 +15,7 @@ I (.\SourceFile\Include\string.h)(0x648585C4)
 I (.\SourceFile\Include\superstring.h)(0x648574E2)
 I (.\SourceFile\Include\speSignal.h)(0x64851FE6)
 I (.\SourceFile\Include\readAndWrite.h)(0x64857505)
+<<<<<<< HEAD
 F (.\SourceFile\Include\base.h)(0x6486687E)()
 F (.\SourceFile\Include\screen.h)(0x64856C0F)()
 F (.\SourceFile\Include\envCLI.h)(0x6486687E)()
@@ -16,12 +23,24 @@ F (.\SourceFile\Include\keyboard.h)(0x648533BB)()
 F (.\SourceFile\Include\delay.h)(0x648469A5)()
 F (.\SourceFile\Include\string.h)(0x648585C4)()
 F (.\SourceFile\Include\envLogin.h)(0x6486687E)()
+=======
+F (.\SourceFile\Include\base.h)(0x6485A0E3)()
+F (.\SourceFile\Include\screen.h)(0x64856C0F)()
+F (.\SourceFile\Include\envCLI.h)(0x6485A133)()
+F (.\SourceFile\Include\keyboard.h)(0x648533BB)()
+F (.\SourceFile\Include\delay.h)(0x648469A5)()
+F (.\SourceFile\Include\string.h)(0x648585C4)()
+F (.\SourceFile\Include\envLogin.h)(0x6485A34B)()
+>>>>>>> 8b9098adfb1bd39d598b01f42b70b19cf9a2a00d
 F (.\SourceFile\Include\superstring.h)(0x648574E2)()
 F (.\SourceFile\Include\keyValue.h)(0x64851335)()
 F (.\SourceFile\Include\speSignal.h)(0x64851FE6)()
 F (.\SourceFile\Include\readAndWrite.h)(0x64857505)()
+F (.\SourceFile\Include\envEditor.h)(0x64859D3C)()
+F (.\SourceFile\Include\envLoginOutImformation.h)(0x6485A34B)()
 F (.\SourceFile\startup_stm32f10x_hd.s)(0x64808D1E)(--cpu Cortex-M3 -g --apcs=interwork -ID:\MDK538a\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include--pd "__UVISION_VERSION SETA 538" --pd "STM32F10X_LD SETA 1"--list .\listings\startup_stm32f10x_hd.lst --xref -o .\objects\startup_stm32f10x_hd.o --depend .\objects\startup_stm32f10x_hd.d)
 F (.\SourceFile\README.c)(0x64826EB8)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SourceFile\Include-ID:\MDK538a\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_LD-o .\objects\readme.o --omf_browse .\objects\readme.crf --depend .\objects\readme.d)
+<<<<<<< HEAD
 F (.\SourceFile\main.c)(0x6486687E)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SourceFile\Include-ID:\MDK538a\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_LD-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (.\SourceFile\Include\base.h)(0x6486687E)
 I (.\SourceFile\Include\screen.h)(0x64856C0F)
@@ -42,6 +61,31 @@ F (.\SourceFile\delay\ddd.c)(0x64844631)(-c --cpu Cortex-M3 -g -O0 --apcs=interw
 I (.\SourceFile\Include\delay.h)(0x648469A5)
 F (.\SourceFile\envLogin\envLogin.c)(0x6486687E)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SourceFile\Include-ID:\MDK538a\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_LD-o .\objects\envlogin.o --omf_browse .\objects\envlogin.crf --depend .\objects\envlogin.d)
 I (.\SourceFile\Include\envLogin.h)(0x6486687E)
+=======
+F (.\SourceFile\main.c)(0x64859D6A)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SourceFile\Include-ID:\MDK538a\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_LD-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (.\SourceFile\Include\base.h)(0x6485A0E3)
+I (.\SourceFile\Include\screen.h)(0x64856C0F)
+I (.\SourceFile\Include\keyboard.h)(0x648533BB)
+I (.\SourceFile\Include\keyValue.h)(0x64851335)
+I (.\SourceFile\Include\envLogin.h)(0x6485A34B)
+I (.\SourceFile\Include\envLoginOutImformation.h)(0x6485A34B)
+I (.\SourceFile\Include\envCLI.h)(0x6485A133)
+I (.\SourceFile\Include\envEditor.h)(0x64859D3C)
+F (.\SourceFile\init.c)(0x648533CF)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SourceFile\Include-ID:\MDK538a\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_LD-o .\objects\init.o --omf_browse .\objects\init.crf --depend .\objects\init.d)
+I (.\SourceFile\Include\base.h)(0x6485A0E3)
+I (.\SourceFile\Include\screen.h)(0x64856C0F)
+I (.\SourceFile\Include\keyboard.h)(0x648533BB)
+I (.\SourceFile\Include\keyValue.h)(0x64851335)
+I (.\SourceFile\Include\envLogin.h)(0x6485A34B)
+I (.\SourceFile\Include\envLoginOutImformation.h)(0x6485A34B)
+I (.\SourceFile\Include\envCLI.h)(0x6485A133)
+I (.\SourceFile\Include\envEditor.h)(0x64859D3C)
+F (.\SourceFile\delay\ddd.c)(0x64844631)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SourceFile\Include-ID:\MDK538a\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_LD-o .\objects\ddd.o --omf_browse .\objects\ddd.crf --depend .\objects\ddd.d)
+I (.\SourceFile\Include\delay.h)(0x648469A5)
+F (.\SourceFile\envLogin\envLogin.c)(0x6485A107)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SourceFile\Include-ID:\MDK538a\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_LD-o .\objects\envlogin.o --omf_browse .\objects\envlogin.crf --depend .\objects\envlogin.d)
+I (.\SourceFile\Include\envLogin.h)(0x6485A34B)
+I (.\SourceFile\Include\envLoginOutImformation.h)(0x6485A34B)
+>>>>>>> 8b9098adfb1bd39d598b01f42b70b19cf9a2a00d
 I (.\SourceFile\Include\screen.h)(0x64856C0F)
 I (.\SourceFile\Include\keyboard.h)(0x648533BB)
 I (.\SourceFile\Include\keyValue.h)(0x64851335)
@@ -71,3 +115,12 @@ I (.\SourceFile\Include\superstring.h)(0x648574E2)
 I (.\SourceFile\Include\speSignal.h)(0x64851FE6)
 I (.\SourceFile\Include\keyboard.h)(0x648533BB)
 I (.\SourceFile\Include\keyValue.h)(0x64851335)
+F (.\SourceFile\envEditor\envEditor.c)(0x64859D7A)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SourceFile\Include-ID:\MDK538a\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="538" -DSTM32F10X_LD-o .\objects\enveditor.o --omf_browse .\objects\enveditor.crf --depend .\objects\enveditor.d)
+I (.\SourceFile\Include\envEditor.h)(0x64859D3C)
+I (.\SourceFile\Include\screen.h)(0x64856C0F)
+I (.\SourceFile\Include\keyboard.h)(0x648533BB)
+I (.\SourceFile\Include\keyValue.h)(0x64851335)
+I (.\SourceFile\Include\string.h)(0x648585C4)
+I (.\SourceFile\Include\superstring.h)(0x648574E2)
+I (.\SourceFile\Include\speSignal.h)(0x64851FE6)
+I (.\SourceFile\Include\readAndWrite.h)(0x64857505)
