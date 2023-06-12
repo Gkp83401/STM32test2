@@ -3,6 +3,6 @@
 
 #include "envLoginOutImformation.h"
 
-unsigned char envLogin(void);
+unsigned char envLogin(envLoginOutImformation *aEnvLoginOutImformationPoint);
 
 #endif

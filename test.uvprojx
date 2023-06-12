@@ -459,6 +459,16 @@
               <FileType>5</FileType>
               <FilePath>.\SourceFile\Include\envLoginOutImformation.h</FilePath>
             </File>
+            <File>
+              <FileName>fileSystem.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SourceFile\Include\fileSystem.h</FilePath>
+            </File>
+            <File>
+              <FileName>dealWithFileSystem.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceFile\fileSystem\dealWithFileSystem.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -563,6 +573,26 @@
               <FileName>envEditor.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\SourceFile\envEditor\envEditor.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>envCartoon</GroupName>
+          <Files>
+            <File>
+              <FileName>envCartoon.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceFile\envCartoon\envCartoon.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>fileSystem</GroupName>
+          <Files>
+            <File>
+              <FileName>fileSystem.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceFile\fileSystem\fileSystem.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -7,7 +7,7 @@
 #include "speSignal.h"
 
 
-unsigned char envCLI()
+unsigned char envCLI(envLoginOutImformation *aEnvLoginOutImformationPoint)
 {
     superstring command;
     screen_w(0, 0x01);

@@ -4,6 +4,7 @@
 typedef struct
 {
     int status;
+    char user[20];
     
 } envLoginOutImformation;
 

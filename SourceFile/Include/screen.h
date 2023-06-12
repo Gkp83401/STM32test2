@@ -25,7 +25,7 @@ extern unsigned char myChar[8][8];
 // 1        0       0       0       0       0       0       0       1       清屏
 // 2        0       0       0       0       0       0       1       x       光标返回
 // 3        0       0       0       0       0       1       I/D     S       显示设置
-// 4        0       0       0       0       1       D       C       S       显示及开关
+// 4        0       0       0       0       1       D       C       S       显示及光标
 // 5        0       0       0       1       S/C     R/L     x       x       整体或光标移位
 // 6        0       0       1       DL      N       F       x       x       一些奇怪的设置
 // 7        0       1       (      字符库地址 0x00 - 0x1F            )       光标去到字符库
@@ -35,7 +35,10 @@ extern unsigned char myChar[8][8];
 //      在程序中设置为0x06
 // 4    D 屏幕是否显示字 1(显示)     C 光标有无 1(有)     B 光标闪烁 1(闪)  (奇怪点设置有闪，光标必有)
 //      程序中大部分时候是 0x0F
-// 5
+// 5    S/C 整体或光标移动 1(整体 screen) 0(光标 cursor)   R/L 左移或右移 1(右移 right) 0(左移 left)
+//      这个不在初始时设置，需要时使用即可.
+// 6    这个就不说了，挺奇怪的，程序中设为 0x38
+// 7和8 就是改变光标位置
 void screen_w(unsigned char rs, unsigned char d_0_to_7);
 
 unsigned char screen_r(unsigned char rs);

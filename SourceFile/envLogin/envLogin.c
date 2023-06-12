@@ -8,7 +8,7 @@
 #include "speSignal.h"
 
 
-unsigned char envLogin()
+unsigned char envLogin(envLoginOutImformation *aEnvLoginOutImformationPoint)
 {
     superstring user = {"", 0, 0};
     superstring passwd = {"", 0, 0};

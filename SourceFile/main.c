@@ -3,16 +3,20 @@
 int main()
  {
     while (1) {
+        envLoginOutImformation *aEnvLoginOutImformationPoint;
+        
         init();
-        /*
-        if (envLogin() == TO_RESET) {
+        
+        envCartoon();
+        
+        
+        if (envLogin(aEnvLoginOutImformationPoint) == TO_RESET) {
             continue;
         }
         
-        if (envCLI() == TO_RESET) {
+        if (envCLI(aEnvLoginOutImformationPoint) == TO_RESET) {
             continue;
         }
-        */
         envEditor();
     }
 }
