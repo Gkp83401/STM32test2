@@ -48,3 +48,27 @@ void strMoveOneRight(superstring *aSuperstring, char aChar)
     (aSuperstring->index)++;
     return;
 }
+
+void strCopy(char *sourceStr, char *targetStr)
+{
+    int i;
+    
+    i = 0;
+    while (sourceStr[i] != 0) {
+        targetStr[i] = sourceStr[i];
+        i++;
+    }
+    targetStr[i] = 0;
+    
+    return;
+}
+
+int strLength(char *str)
+{
+    int i;
+    i = 0;
+    while (str[i] != 0) {
+        i++;
+    }
+    return i;
+}

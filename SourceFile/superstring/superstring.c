@@ -77,6 +77,10 @@ unsigned char toWriteChOneLine(superstring *aSuperstring, char aChar)
 }
 unsigned char toWriteChOneLinePasswd(superstring *aSuperstring, char aChar)
 {
+    int i;
+    char string[20];
+    int stringLength;
+    
     if (aChar == (char)keyLF) {
         return FINISH_INPUT;
     }
@@ -91,8 +95,31 @@ unsigned char toWriteChOneLinePasswd(superstring *aSuperstring, char aChar)
             clearAString(aSuperstring->index - aSuperstring->scrIndex,
                 screen_r_address());
             screen_w(1, '*');
-            screenWriteAndReturn(&(aSuperstring->str[aSuperstring->scrIndex]));
+            
+            stringLength = strLength(&(aSuperstring->str[aSuperstring->scrIndex]));
+            for (i = 0; i < stringLength; i++) {
+                string[i] = '*';
+            }
+            string[i] = 0;
+            screenWriteAndReturn(string);
+            
             strMoveOneRight(aSuperstring, aChar);
+        }
+        return NORMAL_RETURN;
+    }
+    if (aChar == (char)keyBS) {
+        if (aSuperstring->scrIndex != 0) {
+            clearAString(aSuperstring->index - aSuperstring->scrIndex + 1,
+                screen_r_address() - 1);
+            
+            stringLength = strLength(&(aSuperstring->str[aSuperstring->scrIndex]));
+            for (i = 0; i < stringLength; i++) {
+                string[i] = '*';
+            }
+            string[i] = 0;
+            screenWriteAndReturn(string);
+            
+            strMoveOneLeft(aSuperstring);
         }
         return NORMAL_RETURN;
     }

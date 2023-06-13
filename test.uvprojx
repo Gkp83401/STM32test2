@@ -465,9 +465,9 @@
               <FilePath>.\SourceFile\Include\fileSystem.h</FilePath>
             </File>
             <File>
-              <FileName>dealWithFileSystem.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\SourceFile\fileSystem\dealWithFileSystem.c</FilePath>
+              <FileName>userSystem.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SourceFile\Include\userSystem.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -593,6 +593,11 @@
               <FileName>fileSystem.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\SourceFile\fileSystem\fileSystem.c</FilePath>
+            </File>
+            <File>
+              <FileName>dealWithFileSystem.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceFile\fileSystem\dealWithFileSystem.c</FilePath>
             </File>
           </Files>
         </Group>

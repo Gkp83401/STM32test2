@@ -87,7 +87,7 @@ void clearAString(unsigned int length, unsigned int position)
 
 void screenWriteAndReturn(char *str)
 {
-    unsigned int position;
+    int position;
     position = screen_r_address();
     my_printf(str);
     screen_w(0, 0x80 + position);

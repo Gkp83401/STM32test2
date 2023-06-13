@@ -19,4 +19,9 @@ void init()
     screen_w(0, 0x0F);
     screen_w(0, 0x01);
     
+    if (fileSystemInit() == FILE_SYSTEM_INIT_FAIL) {
+        screen_w(0, 0x01);
+        my_printf("crash\nfile system not succeed");
+    }
+    
 }

@@ -7,7 +7,7 @@ int main()
         
         init();
         
-        envCartoon();
+        // envCartoon();
         
         
         if (envLogin(aEnvLoginOutImformationPoint) == TO_RESET) {
