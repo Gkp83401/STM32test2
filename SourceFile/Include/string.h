@@ -36,4 +36,18 @@ unsigned int strCatInd(char *headStr, unsigned int index, char *addStr);
 
 int strLength(char *str);
 
+int strFindPlusAndCal(char *str, int *calResult);
+
+int strFindJianAndCal(char *str, int *calResult);
+
+int strFindChengAndCal(char *str, int *calResult);
+
+int strFindChuAndCal(char *str, int *calResult);
+
+int strFindPingAndCal(char *str, int *calResult);
+
+int strToNum(char *str);
+
+void numToStr(int num, char *str);
+
 #endif

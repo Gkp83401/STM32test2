@@ -514,6 +514,11 @@
               <FileType>1</FileType>
               <FilePath>.\SourceFile\envLogin\envLogin.c</FilePath>
             </File>
+            <File>
+              <FileName>loginCheck.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SourceFile\envLogin\loginCheck.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

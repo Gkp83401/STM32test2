@@ -15,10 +15,10 @@ const char transform1[41] =
 // ´óÐ´×Ö·û
 const char transform2[41] = 
 {
-    '!', '@', 'Q', 'W', 'A', 'S', 'Z', 'X',
+    '+', '-', 'Q', 'W', 'A', 'S', 'Z', 'X',
     '#', '$', 'E', 'R', 'D', 'F', 'C', 'V',
     '%', '^', 'T', 'Y', 'G', 'H', 'B', 'N',
-    '&', '*', 'U', 'I', 'J', 'K', 'M', ' ',
+    '/', '*', 'U', 'I', 'J', 'K', 'M', ' ',
     '(', ')', 'O', 'P', 'L', keyBS, keyLEFT, keyRIGHT,
     keyUNUSE2
 };

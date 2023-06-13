@@ -6,6 +6,7 @@
 ".\objects\init.o"
 ".\objects\ddd.o"
 ".\objects\envlogin.o"
+".\objects\logincheck.o"
 ".\objects\keyboard.o"
 ".\objects\screen.o"
 ".\objects\string.o"

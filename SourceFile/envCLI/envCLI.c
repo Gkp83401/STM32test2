@@ -10,6 +10,8 @@
 unsigned char envCLI(envLoginOutImformation *aEnvLoginOutImformationPoint)
 {
     superstring command;
+    int calResult;
+    char string[20];
     screen_w(0, 0x01);
     my_printf("$ ");
     
@@ -25,7 +27,46 @@ unsigned char envCLI(envLoginOutImformation *aEnvLoginOutImformationPoint)
             screen_w(0, 0x01);
             my_printf("$ \nright");
             screen_w(0, 0x80 + 0x02);
-        } else {
+        } else if (strCmpNoIndex(command.str, "plus")) {
+            screen_w(0, 0x01);
+            my_printf("$ \n character: +");
+            screen_w(0, 0x80 + 0x02);
+        } else if (strCmpNoIndex(command.str, "emoji")) {
+            screen_w(0, 0x01);
+            my_printf("$ \n character: ");
+            screen_w(1, 0xEF);
+            screen_w(0, 0x80 + 0x02);
+        } else if (strFindPlusAndCal(command.str, &calResult)) {
+            screen_w(0, 0x01);
+            numToStr(calResult, string);
+            my_printf("$ \nresult: ");
+            my_printf(string);
+            screen_w(0, 0x80 + 0x02);
+        } else if (strFindJianAndCal(command.str, &calResult)) {
+            screen_w(0, 0x01);
+            numToStr(calResult, string);
+            my_printf("$ \nresult: ");
+            my_printf(string);
+            screen_w(0, 0x80 + 0x02);
+        } else if (strFindChengAndCal(command.str, &calResult)) {
+            screen_w(0, 0x01);
+            numToStr(calResult, string);
+            my_printf("$ \nresult: ");
+            my_printf(string);
+            screen_w(0, 0x80 + 0x02);
+        } else if (strFindChuAndCal(command.str, &calResult)) {
+            screen_w(0, 0x01);
+            numToStr(calResult, string);
+            my_printf("$ \nresult: ");
+            my_printf(string);
+            screen_w(0, 0x80 + 0x02);
+        } else if (strFindPingAndCal(command.str, &calResult)) {
+            screen_w(0, 0x01);
+            numToStr(calResult, string);
+            my_printf("$ \nresult: ");
+            my_printf(string);
+            screen_w(0, 0x80 + 0x02);
+        } else{
             screen_w(0, 0x01);
             my_printf("$ \nerror");
             screen_w(0, 0x80 + 0x02);

@@ -72,3 +72,176 @@ int strLength(char *str)
     }
     return i;
 }
+
+int strFindPlusAndCal(char *str, int *calResult)
+{
+    int i;
+    int a;
+    int b;
+    
+    i = 0;
+    while (1) {
+        if (str[i] == '+') {
+            str[i] = 0;
+            a = strToNum(str);
+            b = strToNum(&(str[i+1]));
+            *calResult = a + b;
+            return 1;
+        }
+        if (str[i] == 0) {
+            return 0;
+        }
+        i++;
+    }
+}
+
+int strFindJianAndCal(char *str, int *calResult)
+{
+    int i;
+    int a;
+    int b;
+    
+    i = 0;
+    while (1) {
+        if (str[i] == '-') {
+            str[i] = 0;
+            a = strToNum(str);
+            b = strToNum(&(str[i+1]));
+            *calResult = a - b;
+            return 1;
+        }
+        if (str[i] == 0) {
+            return 0;
+        }
+        i++;
+    }
+}
+
+int strFindChengAndCal(char *str, int *calResult)
+{
+    int i;
+    int a;
+    int b;
+    
+    i = 0;
+    while (1) {
+        if (str[i] == '*') {
+            str[i] = 0;
+            a = strToNum(str);
+            b = strToNum(&(str[i+1]));
+            *calResult = a * b;
+            return 1;
+        }
+        if (str[i] == 0) {
+            return 0;
+        }
+        i++;
+    }
+}
+
+int strFindChuAndCal(char *str, int *calResult)
+{
+    int i;
+    int a;
+    int b;
+    
+    i = 0;
+    while (1) {
+        if (str[i] == '/') {
+            str[i] = 0;
+            a = strToNum(str);
+            b = strToNum(&(str[i+1]));
+            *calResult = a / b;
+            return 1;
+        }
+        if (str[i] == 0) {
+            return 0;
+        }
+        i++;
+    }
+}
+
+int strFindPingAndCal(char *str, int *calResult)
+{
+    int i;
+    int j;
+    int a;
+    int b;
+    int d;
+    
+    i = 0;
+    while (1) {
+        if (str[i] == '^') {
+            str[i] = 0;
+            a = strToNum(str);
+            b = strToNum(&(str[i+1]));
+            d = 1;
+            for (j = 0; j < b; j++) {
+                d *= a;
+            }
+            *calResult = d;
+            return 1;
+        }
+        if (str[i] == 0) {
+            return 0;
+        }
+        i++;
+    }
+}
+
+int strToNum(char *str)
+{
+    int length = strLength(str);
+    int i;
+    int j;
+    int j0;
+    int num;
+    int out = 0;
+    i = length - 1;
+    j = 0;
+    for (; i >=0; i--) {
+        num = str[i] - 0x30;
+        for (j0 = 0; j0 < j; j0++) {
+            num *= 10;
+        }
+        out += num;
+        j++;
+    }
+    return out;
+}
+
+void numToStr(int num, char *str)
+{
+    int length;
+    int i;
+    int j;
+    int d;
+    int dR;
+    
+    length = 0;
+    while (1) {
+        dR = 1;
+        for (d = 0; d < length; d++) {
+            dR *= 10;
+        }
+        if (num / dR == 0) {
+            break;
+        }
+        length++;
+    }
+    
+    j = 0;
+    for (i = length - 1; i >= 0; i--) {
+        
+        dR = 1;
+        for (d = 0; d < i; d++) {
+            dR *= 10;
+        }
+        
+        str[j] = num / dR + 0x30;
+        num -= (num / dR) * dR;
+        
+        j++;
+    }
+    str[j] = 0;
+}

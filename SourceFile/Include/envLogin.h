@@ -5,4 +5,6 @@
 
 unsigned char envLogin(envLoginOutImformation *aEnvLoginOutImformationPoint);
 
+int loginCheck(char *username, char *password);
+
 #endif

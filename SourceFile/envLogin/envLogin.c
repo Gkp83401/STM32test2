@@ -26,7 +26,7 @@ unsigned char envLogin(envLoginOutImformation *aEnvLoginOutImformationPoint)
         
         if (settleOneLinePasswd(&passwd) == TO_RESET)
             return TO_RESET;
-            
+        
         if (strCmpNoIndex(user.str, "abc") && strCmpNoIndex(passwd.str, "123")) {
             return NORMAL_RETURN;
         }
