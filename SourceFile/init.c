@@ -10,6 +10,9 @@ void init()
     GPIOC_ODR = 0x0000;
     GPIOB_CRL = 0x33333333;
     GPIOB_CRH = 0x33333333;
+    
+    GPIOB_BRR = 1 << 8 | 1 << 14;
+    
     // 固定设置
     screen_w(0, 0x38);
     // 固定设置

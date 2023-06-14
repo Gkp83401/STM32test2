@@ -9,7 +9,7 @@ void screen_w(unsigned char rs, unsigned char d_0_to_7)
 {
     while (screen_r_busy() & 0x80);
     // make e = 0, rw = 0
-    GPIOB_ODR = (GPIOB_ODR & 0x0000) | (rs << 11) | (1 << 10) |
+    GPIOB_ODR = (GPIOB_ODR & 0x4100) | (rs << 11) | (1 << 10) |
         d_0_to_7 | ((unsigned int)(d_0_to_7 & 0x18) << 9);
     GPIOB_BRR = 0x0400;
 }

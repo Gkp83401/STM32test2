@@ -13,6 +13,8 @@ unsigned char envCLI(envLoginOutImformation *aEnvLoginOutImformationPoint)
     superstring command;
     // 用于存放计算结果
     int calResult;
+    int a;
+    int b;
     // 存放把数字转化为的字符串
     char string[20];
     
@@ -36,6 +38,26 @@ unsigned char envCLI(envLoginOutImformation *aEnvLoginOutImformationPoint)
             screen_w(0, 0x01);
             my_printf("$ \nright");
             screen_w(0, 0x80 + 0x02);
+        } else if (strCmpNoIndex(command.str, "fan on")) {
+            screen_w(0, 0x01);
+            my_printf("$ \nfan on");
+            GPIOB_BSRR = 1 << 14;
+            screen_w(0, 0x80 + 0x02);
+        } else if (strCmpNoIndex(command.str, "fan off")) {
+            screen_w(0, 0x01);
+            my_printf("$ \nfan off");
+            GPIOB_BRR = 1 << 14;
+            screen_w(0, 0x80 + 0x02);
+        } else if (strCmpNoIndex(command.str, "buzzer on")) {
+            screen_w(0, 0x01);
+            my_printf("$ \nbuzzer on");
+            GPIOB_BSRR = 1 << 8;
+            screen_w(0, 0x80 + 0x02);
+        } else if (strCmpNoIndex(command.str, "buzzer off")) {
+            screen_w(0, 0x01);
+            my_printf("$ \nbuzzer off");
+            GPIOB_BRR = 1 << 8;
+            screen_w(0, 0x80 + 0x02);
         } else if (strCmpNoIndex(command.str, "plus")) {
             screen_w(0, 0x01);      // 是否为命令plus
             my_printf("$ \n character: +");
@@ -45,34 +67,64 @@ unsigned char envCLI(envLoginOutImformation *aEnvLoginOutImformationPoint)
             my_printf("$ \n character: ");
             screen_w(1, 0xEF);
             screen_w(0, 0x80 + 0x02);
-        } else if (strFindPlusAndCal(command.str, &calResult)) {
+        } else if (strFindPlusAndCal(command.str, &calResult, &a, &b)) {
             screen_w(0, 0x01);      // 是否为加法运算
+            my_printf("$ \n");
+            numToStr(a, string);
+            my_printf(string);
+            my_printf(" + ");
+            numToStr(b, string);
+            my_printf(string);
+            my_printf(" = ");
             numToStr(calResult, string);
-            my_printf("$ \nresult: ");
             my_printf(string);
             screen_w(0, 0x80 + 0x02);
-        } else if (strFindJianAndCal(command.str, &calResult)) {
+        } else if (strFindJianAndCal(command.str, &calResult, &a, &b)) {
             screen_w(0, 0x01);      // 是否为减法运算
+            my_printf("$ \n");
+            numToStr(a, string);
+            my_printf(string);
+            my_printf(" - ");
+            numToStr(b, string);
+            my_printf(string);
+            my_printf(" = ");
             numToStr(calResult, string);
-            my_printf("$ \nresult: ");
             my_printf(string);
             screen_w(0, 0x80 + 0x02);
-        } else if (strFindChengAndCal(command.str, &calResult)) {
+        } else if (strFindChengAndCal(command.str, &calResult, &a, &b)) {
             screen_w(0, 0x01);      // 是否为乘法运算
+            my_printf("$ \n");
+            numToStr(a, string);
+            my_printf(string);
+            my_printf(" * ");
+            numToStr(b, string);
+            my_printf(string);
+            my_printf(" = ");
             numToStr(calResult, string);
-            my_printf("$ \nresult: ");
             my_printf(string);
             screen_w(0, 0x80 + 0x02);
-        } else if (strFindChuAndCal(command.str, &calResult)) {
+        } else if (strFindChuAndCal(command.str, &calResult, &a, &b)) {
             screen_w(0, 0x01);      // 是否为除法运算
+            my_printf("$ \n");
+            numToStr(a, string);
+            my_printf(string);
+            my_printf(" / ");
+            numToStr(b, string);
+            my_printf(string);
+            my_printf(" = ");
             numToStr(calResult, string);
-            my_printf("$ \nresult: ");
             my_printf(string);
             screen_w(0, 0x80 + 0x02);
-        } else if (strFindPingAndCal(command.str, &calResult)) {
+        } else if (strFindPingAndCal(command.str, &calResult, &a, &b)) {
             screen_w(0, 0x01);      // 是否为次方运算
+            my_printf("$ \n");
+            numToStr(a, string);
+            my_printf(string);
+            my_printf(" ^ ");
+            numToStr(b, string);
+            my_printf(string);
+            my_printf(" = ");
             numToStr(calResult, string);
-            my_printf("$ \nresult: ");
             my_printf(string);
             screen_w(0, 0x80 + 0x02);
         } else{

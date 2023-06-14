@@ -73,7 +73,7 @@ int strLength(char *str)
     return i;
 }
 
-int strFindPlusAndCal(char *str, int *calResult)
+int strFindPlusAndCal(char *str, int *calResult, int *aO, int *bO)
 {
     int i;
     int a;
@@ -86,6 +86,8 @@ int strFindPlusAndCal(char *str, int *calResult)
             a = strToNum(str);
             b = strToNum(&(str[i+1]));
             *calResult = a + b;
+            *aO = a;
+            *bO = b;
             return 1;
         }
         if (str[i] == 0) {
@@ -95,7 +97,7 @@ int strFindPlusAndCal(char *str, int *calResult)
     }
 }
 
-int strFindJianAndCal(char *str, int *calResult)
+int strFindJianAndCal(char *str, int *calResult, int *aO, int *bO)
 {
     int i;
     int a;
@@ -107,6 +109,8 @@ int strFindJianAndCal(char *str, int *calResult)
             str[i] = 0;
             a = strToNum(str);
             b = strToNum(&(str[i+1]));
+            *aO = a;
+            *bO = b;
             *calResult = a - b;
             return 1;
         }
@@ -117,7 +121,7 @@ int strFindJianAndCal(char *str, int *calResult)
     }
 }
 
-int strFindChengAndCal(char *str, int *calResult)
+int strFindChengAndCal(char *str, int *calResult, int *aO, int *bO)
 {
     int i;
     int a;
@@ -130,6 +134,8 @@ int strFindChengAndCal(char *str, int *calResult)
             a = strToNum(str);
             b = strToNum(&(str[i+1]));
             *calResult = a * b;
+            *aO = a;
+            *bO = b;
             return 1;
         }
         if (str[i] == 0) {
@@ -139,7 +145,7 @@ int strFindChengAndCal(char *str, int *calResult)
     }
 }
 
-int strFindChuAndCal(char *str, int *calResult)
+int strFindChuAndCal(char *str, int *calResult, int *aO, int *bO)
 {
     int i;
     int a;
@@ -151,6 +157,8 @@ int strFindChuAndCal(char *str, int *calResult)
             str[i] = 0;
             a = strToNum(str);
             b = strToNum(&(str[i+1]));
+            *aO = a;
+            *bO = b;
             *calResult = a / b;
             return 1;
         }
@@ -161,7 +169,7 @@ int strFindChuAndCal(char *str, int *calResult)
     }
 }
 
-int strFindPingAndCal(char *str, int *calResult)
+int strFindPingAndCal(char *str, int *calResult, int *aO, int *bO)
 {
     int i;
     int j;
@@ -180,6 +188,8 @@ int strFindPingAndCal(char *str, int *calResult)
                 d *= a;
             }
             *calResult = d;
+            *aO = a;
+            *bO = b;
             return 1;
         }
         if (str[i] == 0) {
